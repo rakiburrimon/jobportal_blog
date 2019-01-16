@@ -27,9 +27,6 @@ class JobSeeker extends Model
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
     
     /**
      * Add a mutator to ensure hashed passwords
@@ -38,6 +35,11 @@ class JobSeeker extends Model
     {
         $this->attributes['password'] = bcrypt($password);
     }
+
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+    
 }
 
 ?>
