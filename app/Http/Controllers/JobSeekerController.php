@@ -26,9 +26,15 @@ class JobSeekerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    protected function create(array $data)
     {
-        $jobseeker = JobSeeker::create(request(['name', 'email', 'password','status','type']));
+        return JobSeeker::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'status' => $data['status'],
+            'type' => $data['type'],
+        ]);
     }
 
     /**
@@ -40,10 +46,15 @@ class JobSeekerController extends Controller
 
     //use RegistersUsers;
 
-    public function store(Request $request)
+    protected function validator(array $data)
     {
-       
-        
+        return Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+            'status' => 'required|string|max:255',
+            'type' => 'required|string|max:255',
+        ]);
     }
 
     /**

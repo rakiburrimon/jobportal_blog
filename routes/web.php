@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
 
@@ -20,5 +20,5 @@ Auth::routes();
 
 Route::get('/home', 'JobSeekerController@index')->name('home');
 
-Route::get('/create', 'JobSeekerController@create');
-Route::post('/register', 'JobSeekerController@store');
+Route::get('/', 'JobSeekerController@');
+Route::post('register', 'JobSeekerController@create');
