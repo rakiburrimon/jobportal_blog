@@ -15,10 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Auth::routes();
 
-Route::get('/home', 'JobSeekerController@index')->name('home');
+Route::get('home', 'HomeController@index')->name('home');
 
 Route::get('/', 'JobSeekerController@');
-Route::post('register', 'JobSeekerController@store');
+Route::post('register', 'JobSeekerController@create')->name('registers');
