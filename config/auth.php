@@ -67,13 +67,9 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\JobSeeker::class,
+            'model' => App\User::class,
         ],
 
-        'users' => [
-        'driver' => 'database',
-         'table' => 'jobseekers',
-         ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
