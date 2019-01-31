@@ -15,9 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/welcome', 'HomeController@welcome')->name('welcome');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('insert_jobseeker','JobSeekerController@insertform');
-Route::post('create_jobseeker','JobSeekerController@insert_jobseeker'); 
+Route::post('Job Seeker Registration','JobSeekerController@create_jobseeker'); 
+
+
+// route to show the login form
+//Route::get('AdminLogin','LoginController@showadminlogin');
+
+// route to process the form
+//Route::post('Admin Login','LoginController@Admin_Login');

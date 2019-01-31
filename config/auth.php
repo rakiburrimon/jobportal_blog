@@ -70,6 +70,28 @@ return [
             'model' => App\User::class,
         ],
 
+         'users' => [
+             'driver' => 'database',
+           'table' => 'admins',
+        ],
+
+        // 'users' => [
+        //     'driver' => 'database',
+        //     'table' => 'users',
+        // ],
+    ],
+
+    'providers' => [
+        'users' => [
+            'driver' => 'eloquent',
+            'model' => App\JobSeeker::class,
+        ],
+
+         'users' => [
+             'driver' => 'database',
+           'table' => 'jobseekers',
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
